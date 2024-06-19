@@ -24,10 +24,19 @@ public class Status {
     public static void main(String[] args)
     {
     Scanner in =new Scanner(System.in);
-    System.out.println("Enter the user status code (zero,one,two,three) in string");
-    String code = in.next();
-    StausUser t= new StausUser();
-    t.statusDetail(code); 
+    System.out.println("Enter the user status code (ZERO, ONE, TWO, THREE)");
+    String input = in.next();
+    
+    try
+    {
+        StatusCode code= StatusCode.valueOf(input.toUpperCase());
+        
+        StatusUser t= new StatusUser();
+        t.statusDetail(code);
+    } catch (IllegalArgumentException e)
+    {
+        System.out.println("NOT VALID CODE");
+    }
     }
     
 }
